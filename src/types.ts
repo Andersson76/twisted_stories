@@ -1,7 +1,8 @@
 export interface GameStep {
+    id: number, 
     question: string,
     answers: {
-        left: {},
-        right: {}
+        left: string,
+        right: string
     }
 }
