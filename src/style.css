@@ -6,3 +6,18 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+.button {
+  border: none;
+  color: rgb(101, 14, 14);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1 1fr;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  align-items: center;
+  padding: 25px;
+  width: 50%;
+}
