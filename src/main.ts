@@ -8,28 +8,47 @@ const btnElement1 = document.querySelector(".btn-left") as HTMLElement
 const btnElement2 = document.querySelector(".btn-right") as HTMLElement
 
 const startGame = function() {
-  showQuestion(gameData);
+  showQuestion(currentQuestion);
 }
 
 let currentQuestion = gameData[0]
 
-const showQuestion = function(gameData: GameStep[]) {
+const showQuestion = function(gameStep: GameStep) {
+console.log(gameStep)
+  if(!gameStep) {
+    gameStep = gameData[0]
+  }
+  textElement!.textContent = gameStep.question
+  
+  btnElement1!.innerHTML = gameStep.answers.left.text
+  
+  btnElement1.addEventListener('click',() => { 
+    nextStep(currentQuestion.answers.left.navigateTo) 
+    
+  });
+  
+  btnElement2!.innerHTML = gameStep.answers.right.text
 
-  textElement.textContent = currentQuestion.question
 
+  btnElement2.addEventListener('click', () => {
+  
+    console.log("hhh")
+    nextStep(currentQuestion.answers.right.navigateTo) 
+
+  });
 }
-const nextStep = function() {
-  
+
+const nextStep = function(id: number) {
+
+  for (let i = 0; i < gameData.length; i++) {
+    const nextGame = gameData[i];
+     if(nextGame.id == id ) {
+       console.log(nextGame)
+       showQuestion(nextGame)
+     }
+  }
+  console.log(id);
 }
 
-btnElement1.addEventListener('click', function() {
-  
-});
-
-btnElement2.addEventListener('click', function() {
-
-  console.log('Clicked!');
-  
-});
 
 window.addEventListener('load', startGame)
