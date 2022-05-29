@@ -50,7 +50,7 @@ export const showQuestion = function(gameStep: GameStep) {
   });
 }
 
-export const nextStep = function(id: number) {
+const nextStep = function(id: number) {
   
   for (let i = 0; i < gameData.length; i++) {
     const nextGame = gameData[i];
